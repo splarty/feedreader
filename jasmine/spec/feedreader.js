@@ -58,7 +58,7 @@ $(function() {
             });
         }
 
-        for (var x = 0; x < allFeeds.length; x++) {
+        for (var y = 0; y < allFeeds.length; y++) {
             nameDefined(allFeeds[x].name);
         }
 
@@ -129,7 +129,7 @@ $(function() {
             loadFeed(0, function() {
                 done();
             });
-        })
+        });
 
 
         it('there is at least a single .entry element within the .feed container', function() {
@@ -148,7 +148,7 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 
-         // Derived from http://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html
+        // Derived from http://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html
 
         var feed;
         beforeEach(function(done) {
