@@ -36,14 +36,18 @@ $(function() {
 
         function urlDefined(feeds) {
             it('URLs are defined', function() {
-                expect(feeds).toBeDefined();
-                expect(feeds).not.toBeNull();
+                for (var x = 0; x < feeds.length; x++) {
+                    expect(feeds[x].url).toBeDefined();
+                    expect(feeds[x].url).not.toBeNull();
+                    expect(feeds[x].url).not.toEqual('');
+                    expect(feeds[x].url.length).not.toBe(0);
+
+                }
             });
         }
 
-        for (var x = 0; x < allFeeds.length; x++) {
-            urlDefined(allFeeds[x].url);
-        }
+        urlDefined(allFeeds);
+
 
 
         /* TODO: Write a test that loops through each feed
@@ -52,15 +56,19 @@ $(function() {
          */
 
         function nameDefined(feeds) {
-            it('names are defined', function() {
-                expect(feeds).toBeDefined();
-                expect(feeds).not.toBeNull();
+            it('URLs are defined', function() {
+                for (var y = 0; y < feeds.length; y++) {
+                    expect(feeds[y].name).toBeDefined();
+                    expect(feeds[y].name).not.toBeNull();
+                    expect(feeds[y].name).not.toEqual('');
+                    expect(feeds[y].name.length).not.toBe(0);
+                }
             });
         }
 
-        for (var y = 0; y < allFeeds.length; y++) {
-            nameDefined(allFeeds[x].name);
-        }
+        nameDefined(allFeeds);
+
+
 
     });
 
@@ -79,8 +87,8 @@ $(function() {
         // console.log($(document.body)[0]);
 
         it('hidden by default', function() {
-            // expect($(document.body).hasClass('menu-hidden')).toBe(true); 
-            expect($(document.body).attr('class')).toEqual('menu-hidden');
+            expect($(document.body).hasClass('menu-hidden')).toBe(true);
+            // expect($(document.body).attr('class')).toEqual('menu-hidden');
         });
 
         /* TODO: Write a test that ensures the menu changes
@@ -92,9 +100,11 @@ $(function() {
 
         it('menu changes visibility onclick', function() {
             $('.menu-icon-link').click();
-            expect($(document.body).attr('class')).not.toEqual('menu-hidden');
+            // expect($(document.body).attr('class')).not.toEqual('menu-hidden');
+            expect($(document.body).hasClass('menu-hidden')).not.toBe(true);
             $('.menu-icon-link').click();
-            expect($(document.body).attr('class')).toEqual('menu-hidden');
+            // expect($(document.body).attr('class')).toEqual('menu-hidden');
+            expect($(document.body).hasClass('menu-hidden')).toBe(true);
         });
 
 
